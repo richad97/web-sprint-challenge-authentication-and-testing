@@ -6,6 +6,9 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "migrate": "knex migrate:latest",
+    "rollback": "knex migrate:rollback",
+    "seed": "knex seed:run",
+    "resetdb": "npm run rollback && npm run migrate && npm run seed",
     "test": "cross-env NODE_ENV=testing jest --verbose --runInBand --silent"
   },
   "repository": {
@@ -14,9 +17,12 @@
   },
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cors": "2.8.5",
+    "dotenv": "^14.3.2",
     "express": "4.17.1",
     "helmet": "4.6.0",
+    "jsonwebtoken": "^8.5.1",
     "knex": "0.95.14",
     "sqlite3": "5.0.2"
   },
